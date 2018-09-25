@@ -12,7 +12,7 @@ public class Sudoku extends LatinSquare {
 	private int iSize;
 	private int iSqrtSize;
 	
-	private int[][] myPuzzle;
+	private int[][] myPuzzle; 
 	
 	
 	// is it a square root a number then good or throw an error
@@ -25,7 +25,7 @@ public class Sudoku extends LatinSquare {
 			this.iSqrtSize = (int) Sqrt;
 		}
 		else {
-			throw new Exception("notSqrt");
+			throw new Exception("notSqrt"); 
 		}
 	}
 	
@@ -106,42 +106,76 @@ public class Sudoku extends LatinSquare {
 		
 	}
 		 
-	 public boolean isPartialSudoku() {
-		
+	
+	public boolean isPartialSudoku() {
+
 		boolean a = true;
 		boolean b;
 		int c;
 		int[][] mySud = super.getLatinSquare();
-		
-	
-		for (int i = 0; i < iSize; i++)
+
+		if(super.ContainsZero() == false)
 		{
-		for (int j = 0; j < iSize; j++) 
-			{ 
-				if (mySud[i][j] != 0)
+			a = false;
+		}
+		
+		for(int i=0;i<iSize;i++)
+		{
+			for(int j=0;j<iSize;j++)
+			{
+				c = mySud[i][j];
+				if(c!=0)
 				{
-					c = mySud[i][j];
-					b = isValueValid(j,i,c); 
-					if (b = false)
+					b = isValueValid(j,i,c);
+					
+					if(b == false)
 					{
 						a = false;
-						
+					
 					}
 				}
-				
-			} 
+			}
+		}
+		
+		return a;
+		}
+
+	public boolean isSudoku() {
+		boolean a = true;
+		boolean b;
+		int c;
+		int[][] mySud = super.getLatinSquare();
+		int zeroCheck = 0;
+		
+		if (super.ContainsZero() == true)
+		{
+			a = false;
+		}
+		
+		
+		for(int i=0;i<iSize;i++)
+		{
+			for(int j=0;j<iSize;j++)
+			{
+				c = mySud[i][j];
+				if(c!= zeroCheck)
+				{
+					b = isValueValid(j,i,c);
+					if(b == false)
+					{
+						a = false;
+					
+					}
+				}
+			}
+			
 		}
 		return a;
 	}
+	
+	
+	
 	 
-	 public  boolean isSudoku() {
-			boolean a = false;
-			  if (isPartialSudoku() == true && super.ContainsZero() == false)
-			  {
-				  a = true;
-			  }
-			  return a;
-	}
 }
 	
 	

@@ -319,15 +319,15 @@ public class SudokuTest {
 							{7,4,8,4,2,9,1,6,3},
 							{6,5,2,7,8,1,3,9,4},
 							{9,8,1,3,4,5,2,7,6},
-							{3,7,4,9,6,2,8,1,5}};
+							{3,7,4,9,6,2,8,1,6}};
 
 		
 		Sudoku s1 = new Sudoku(myPuzzle);
 	
-		assertTrue(s1.isSudoku());
+		assertFalse(s1.isSudoku());
 		
 		}}
-
+ 
 
 
 	
