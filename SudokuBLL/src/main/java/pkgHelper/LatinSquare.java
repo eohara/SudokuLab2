@@ -213,7 +213,7 @@ public class LatinSquare {
 	 */
 	public boolean isLatinSquare() {
 
-		boolean isLatinSquare = true;
+		boolean isLatinSquare = true; 
 		// TODO: Return 'true' if...
 		// Each row and column doesn't contain duplicates
 		// If each element in the first row is found in every other row
